@@ -32,3 +32,14 @@ then
 else
    echo "invalid email"
 fi
+
+read -p "Enter valid phone number:" phonenumber
+
+pattern="^[0-9]{2}[[:space:]][0-9]{10}$"
+
+if [[ $phonenumber =~ $pattern ]]
+then
+   echo "valid phone number"
+else
+   echo "invalid phone number"
+fi
