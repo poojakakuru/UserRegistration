@@ -46,11 +46,18 @@ fi
 
 read -p "Enter password:" password
 
-passwordpattern="[a-zA-Z0-9]{8}"
+pattern="^.{8,}$"
 
-if [[ $password =~ $passwordpattern ]]
+if [[ $password =~ $pattern ]]
 then
-   echo "valid password"
+   echo $password "is having 8 characters"
+
+   if [[ "$password" =~ [A-Z] && "$password" =~ [0-9] && "$password" =~ [#!@*?] ]];
+   then
+      echo $password "Is valid"
+   else
+      echo $password "is invalid"
+   fi
 else
    echo "Invalid password"
 fi
